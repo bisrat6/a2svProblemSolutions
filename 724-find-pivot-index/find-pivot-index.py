@@ -1,14 +1,18 @@
-from typing import List
-
 class Solution:
     def pivotIndex(self, nums: List[int]) -> int:
-        total = sum(nums)
-        left_sum = 0
-        
-        for i, v in enumerate(nums):
-            # right sum = total sum minus left sum minus current element
-            if left_sum == total - left_sum - v:
+        arr=[]
+        arr2=[]
+        for i in range(len(nums)):
+            if not arr:
+                arr.append(nums[len(nums)-i-1])
+                arr2.append(nums[i])
+            else:
+                arr.append(arr[-1]+nums[len(nums)-i-1])
+                arr2.append(arr2[-1]+nums[i])
+        arr=arr[::-1]
+        for i in range(len(nums)):
+            if arr[i]==arr2[i]:
                 return i
-            left_sum += v
-        
         return -1
+
+            
