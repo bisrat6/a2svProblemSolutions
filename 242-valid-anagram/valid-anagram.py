@@ -1,5 +1,6 @@
 class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
+        if len(s)!=len(t):return False
         dic={}
         for i in s:
             if i not in dic:
@@ -11,7 +12,5 @@ class Solution:
                 return False
             else:
                 dic[i]-=1
-        for value in dic.values():
-            if value>0:
-                return False
+
         return True
