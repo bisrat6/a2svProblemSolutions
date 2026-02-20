@@ -5,6 +5,7 @@ class Solution:
             for j in ranges:
                 if j[0]<=i<=j[1]:
                     check=True
+                    break
             if not check:
                 return False
         return True
